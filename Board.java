@@ -1,7 +1,10 @@
 import java.awt.*;
 import java.awt.event.*;
 
-public class Board {
+import javax.swing.event.MouseInputAdapter;
+
+
+public class Board extends MouseAdapter{
     public static final int squareLength=200;
     private Square[][] board;
     private Square winner;
@@ -51,7 +54,42 @@ public class Board {
         g.setColor(Color.WHITE);
         g.setFont(new Font("Arial",Font.BOLD,60));
         g.drawString("Welcome to Tic-Tac-Toe!",50,60);
-        
+
+    }
+
+    public void mousePressed(MouseEvent e){
+        int mx=e.getX();
+        int my=e.getY();
+    }
+
+    public int getRowClicked(int mx,int my){
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < cols; j++) {
+                // x x x x ( )
+                if(my>=(board[i][j].getRow()-1)*squareLength+90
+                && my<= (board[i][j].getRow()-1)*90+squareLength+1){
+                    return board[i][j].getRow();
+                }
+
+            }
+        }
+        return-1;
+
+    }
+
+    public int getColClicked(int mx,int my){
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < cols; j++) {
+                // x x x x ( )
+                if(mx>=(board[i][j].getCol()-1)*squareLength+100
+                && mx<= (board[i][j].getCol()-1)*95+squareLength+1){
+                    return board[i][j].getCol();
+                }
+
+            }
+        }
+        return-1;
+
     }
 
 
