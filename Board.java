@@ -35,9 +35,23 @@ public class Board {
             for (int j = 0; j < cols; j++) {
                 if(board[i][j]==null)
                 board[i][j]=new Square();
+
+                g.setColor(Color.WHITE);
+                g.fillRect(i*squareLength+100,j*squareLength+90,squareLength,squareLength);
+                ((Graphics2D)g).setStroke(new BasicStroke(4));
+                g.setColor(Color.BLACK);
+                g.drawRect(i*squareLength+100,j*squareLength+90,squareLength+1,squareLength+1);
+                g.drawString(board[i][j].getPiece().getValue(), i*squareLength+95+(squareLength/5), j*squareLength+100+(squareLength/2));
+
+
             }
             
         }
+
+        g.setColor(Color.WHITE);
+        g.setFont(new Font("Arial",Font.BOLD,60));
+        g.drawString("Welcome to Tic-Tac-Toe!",50,60);
+        
     }
 
 
