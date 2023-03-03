@@ -14,6 +14,7 @@ public class Game extends Canvas implements Runnable{
         gameRunning = false;
         frame=new Frame(this);
         board=new Board();
+        addMouseListener(board);
     }
     public synchronized void start(){
         if(gameRunning)
@@ -80,7 +81,7 @@ public class Game extends Canvas implements Runnable{
             return;
         }
         Graphics g=bs.getDrawGraphics();
-        g.setColor(new Color(46,64,83));
+        g.setColor(new Color(150,123,182));
         g.fillRect(0, 0, Frame.WIDTH, Frame.HEIGHT);
         if(board !=null){
             board.draw(g);

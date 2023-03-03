@@ -2,17 +2,24 @@ public class Piece {
     private String value;
     private int row;
     private int col;
-    public Piece(){
-        row=-1;
-        col=-1;
-        value=" ";
-    }
-
-    
-
+   
     @Override
     public String toString() {
         return "Piece [value=" + value + "]";
+    }
+
+    public boolean equals(Object o){
+        if(!(o instanceof Piece))
+        return false;
+
+        Piece p=(Piece) o;
+
+        if(getValue().equals(p.getValue()))
+        return true;
+
+        return false;
+
+
     }
 
 
